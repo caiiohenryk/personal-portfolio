@@ -2,6 +2,16 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
+import type { IconType } from "react-icons";
+import { FaJava } from "react-icons/fa";
+import {
+  SiDocker,
+  SiKubernetes,
+  SiNestjs,
+  SiNextdotjs,
+  SiRedis,
+  SiTypescript,
+} from "react-icons/si";
 import type { PinnedProject } from "@/app/lib/github";
 
 type Language = "en" | "pt";
@@ -12,14 +22,19 @@ type PortfolioPageProps = {
   year: number;
 };
 
-const stack = [
-  "TypeScript",
-  "NestJS",
-  "Docker",
-  "Kubernetes",
-  "Java",
-  "Next.js",
-  "BullMQ",
+type StackItem = {
+  name: string;
+  Icon: IconType;
+};
+
+const stack: StackItem[] = [
+  { name: "TypeScript", Icon: SiTypescript },
+  { name: "NestJS", Icon: SiNestjs },
+  { name: "Docker", Icon: SiDocker },
+  { name: "Kubernetes", Icon: SiKubernetes },
+  { name: "Java", Icon: FaJava },
+  { name: "Next.js", Icon: SiNextdotjs },
+  { name: "BullMQ", Icon: SiRedis },
 ];
 
 const copy = {
@@ -173,12 +188,13 @@ export default function PortfolioPage({
         <section className="reveal reveal-delay-2 mt-12 grid gap-6 border-b border-[var(--line)] pb-12">
           <SectionHeading label={t.sectionStack} />
           <ul className="flex flex-wrap gap-3">
-            {stack.map((item) => (
+            {stack.map(({ name, Icon }) => (
               <li
-                key={item}
-                className="stack-badge rounded-full border border-[var(--line)] px-4 py-2 text-sm font-medium"
+                key={name}
+                className="stack-badge flex items-center gap-2.5 rounded-full border border-[var(--line)] px-4 py-2 text-sm font-medium"
               >
-                {item}
+                <Icon aria-hidden="true" className="text-base text-[var(--muted)]" />
+                <span>{name}</span>
               </li>
             ))}
           </ul>
