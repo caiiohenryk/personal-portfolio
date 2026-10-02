@@ -1,41 +1,35 @@
-import type { Metadata } from "next";
-import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { I18N, PROFILE } from '@/app/lib/content';
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-ibm-plex-mono",
-  weight: ["400", "500"],
-  subsets: ["latin"],
+// Inter via next/font — família e peso limitados pelo Nocturne (headings ≤ 500).
+// Sem @import de CDN: as fontes são autolocalizadas no build (precisa de rede
+// no primeiro build; se offline, falhe alto aqui, não caia para CDN).
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-inter',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: "Caio Henrique | Backend Engineer",
-  description:
-    "Portfolio of Caio Henrique, backend engineer focused on TypeScript, NestJS, infrastructure, and reliable distributed systems.",
+  // PLACEHOLDER — substituir com dados reais do Caio (domínio definitivo).
+  metadataBase: new URL('https://caiiohenryk.com'),
+  title: `${PROFILE.name} — ${PROFILE.roleTitle}`,
+  description: I18N.pt.heroSub,
   openGraph: {
-    title: "Caio Henrique | Backend Engineer",
-    description:
-      "Scalable backend applications with TypeScript, NestJS, Docker, Kubernetes, and distributed architecture.",
-    type: "website",
+    title: `${PROFILE.name} — ${PROFILE.roleTitle}`,
+    description: I18N.pt.heroSub,
+    type: 'profile',
+    locale: 'pt_BR',
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${spaceGrotesk.variable} ${ibmPlexMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="pt-BR" className={inter.variable}>
+      <body>{children}</body>
     </html>
   );
 }
