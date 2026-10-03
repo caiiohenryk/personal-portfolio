@@ -86,7 +86,7 @@ export const I18N: Record<Lang, Dict> = {
     greet: 'Olá, eu sou',
     roles: ['Engenheiro de Software', 'Desenvolvedor Back-end', 'Arquitetura Cloud'],
     heroSub:
-      'Arqueto sistemas em cloud para entregar soluções de ponta a ponta, da concepção da aplicação ao deploy, unindo desenvolvimento, entrega em nuvem e arquitetura.',
+      'Arquiteto sistemas em cloud para entregar soluções de ponta a ponta, da concepção da aplicação ao deploy, unindo desenvolvimento, entrega em nuvem e arquitetura.',
     ctaProjects: 'Ver projetos',
 
     location: 'João Pessoa, Brasil',
