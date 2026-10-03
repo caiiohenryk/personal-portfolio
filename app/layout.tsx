@@ -16,10 +16,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   // PLACEHOLDER — substituir com dados reais do Caio (domínio definitivo).
   metadataBase: new URL('https://caiiohenryk.com'),
-  title: `${PROFILE.name} — ${PROFILE.roleTitle}`,
+  title: `${PROFILE.name} | ${PROFILE.roleTitle}`,
   description: I18N.pt.heroSub,
   openGraph: {
-    title: `${PROFILE.name} — ${PROFILE.roleTitle}`,
+    title: `${PROFILE.name} | ${PROFILE.roleTitle}`,
     description: I18N.pt.heroSub,
     type: 'profile',
     locale: 'pt_BR',
