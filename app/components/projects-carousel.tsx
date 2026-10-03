@@ -17,16 +17,8 @@ export function ProjectsCarousel() {
   const t = useT();
   const n = t.projects.length;
   const sectionRef = useRef<HTMLElement | null>(null);
-  const [wide, setWide] = useState(true);
   const [proj, setProj] = useState({ idx: 0, prog: 0 });
   const latest = useRef(proj);
-
-  useEffect(() => {
-    const onResize = () => setWide(window.innerWidth >= 900);
-    onResize();
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -150,13 +142,25 @@ export function ProjectsCarousel() {
                     border: 0,
                     padding: 0,
                     cursor: 'pointer',
-                    height: 8,
-                    width: i === proj.idx ? 28 : 8,
-                    borderRadius: 4,
-                    background: i === proj.idx ? 'var(--color-accent)' : 'var(--color-neutral-700)',
-                    transition: 'width .4s cubic-bezier(.2,.7,.2,1), background .3s',
+                    height: 24,
+                    width: 24,
+                    background: 'transparent',
+                    display: 'grid',
+                    placeItems: 'center',
                   }}
-                />
+                >
+                  <span
+                    aria-hidden="true"
+                    style={{
+                      display: 'block',
+                      height: 8,
+                      width: i === proj.idx ? 28 : 8,
+                      borderRadius: 4,
+                      background: i === proj.idx ? 'var(--color-accent)' : 'var(--color-neutral-700)',
+                      transition: 'width .4s cubic-bezier(.2,.7,.2,1), background .3s',
+                    }}
+                  />
+                </button>
               ))}
             </div>
           </div>
@@ -181,13 +185,12 @@ export function ProjectsCarousel() {
               return (
                 <article
                   key={p.title}
-                  aria-hidden={!active}
+                  className="proj-card"
+                  inert={!active}
                   style={{
                     position: 'absolute',
                     inset: 0,
                     display: 'grid',
-                    gridTemplateColumns: wide ? 'minmax(0, 5fr) minmax(0, 7fr)' : 'minmax(0, 1fr)',
-                    gridTemplateRows: wide ? '1fr' : 'minmax(0, 1fr) auto',
                     gap: 'clamp(20px, 4vw, 56px)',
                     alignItems: 'center',
                     opacity: active ? 1 : 0,
@@ -197,12 +200,12 @@ export function ProjectsCarousel() {
                   }}
                 >
                   <div
+                    className="proj-copy"
                     style={{
                       display: 'flex',
                       flexDirection: 'column',
                       gap: 14,
                       minWidth: 0,
-                      order: wide ? 1 : 2,
                     }}
                   >
                     <p style={{ margin: 0, fontSize: 12, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--color-accent-300)' }}>
@@ -262,13 +265,13 @@ export function ProjectsCarousel() {
                     </div>
                   </div>
                   <div
+                    className="proj-media"
                     style={{
                       position: 'relative',
                       minWidth: 0,
                       height: '100%',
                       maxHeight: 560,
                       alignSelf: 'center',
-                      order: wide ? 2 : 1,
                     }}
                   >
                     <div

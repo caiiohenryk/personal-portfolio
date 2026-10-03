@@ -78,7 +78,7 @@ export function MenuDrawer() {
       {/* Painel */}
       <aside
         aria-label="Menu"
-        aria-hidden={!menu}
+        inert={!menu}
         style={{
           position: 'fixed',
           top: 0,

@@ -59,21 +59,8 @@ function useTypingEffect(roles: string[]): string {
   return typed;
 }
 
-/** Breakpoint do layout largo do design (state.wide, linhas 421/517): ≥ 900px. */
-function useWide(): boolean {
-  const [wide, setWide] = useState(true);
-  useEffect(() => {
-    const onResize = () => setWide(window.innerWidth >= 900);
-    onResize();
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
-  return wide;
-}
-
 export function Hero() {
   const t = useT();
-  const wide = useWide();
   const typed = useTypingEffect(t.roles);
 
   return (
@@ -108,10 +95,10 @@ export function Hero() {
           margin: '0 auto',
           padding: 'clamp(96px, 14vh, 140px) clamp(20px, 5vw, 72px) clamp(64px, 10vh, 112px)',
           display: 'grid',
-          gridTemplateColumns: wide ? 'minmax(0, 1.15fr) minmax(0, 0.85fr)' : 'minmax(0, 1fr)',
           gap: 'clamp(40px, 6vw, 88px)',
           alignItems: 'center',
         }}
+        className="hero-grid"
       >
         {/* Coluna de texto */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', minWidth: 0, order: 1 }}>
@@ -205,11 +192,9 @@ export function Hero() {
         {/* Coluna da foto */}
         <Reveal
           delay={160}
+          className="hero-photo"
           style={{
             position: 'relative',
-            justifySelf: wide ? 'center' : 'start',
-            width: wide ? 'min(100%, 420px)' : 'min(68vw, 280px)',
-            order: wide ? 2 : 0,
           }}
         >
           <div

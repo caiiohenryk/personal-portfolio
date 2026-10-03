@@ -414,6 +414,56 @@ img {
   }
 }
 
+/* Layout responsivo do hero e dos projetos via media queries (em vez de
+   estado JS que re-renderizava após hidratação e gerava layout shift). */
+.hero-grid {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+}
+
+.hero-photo {
+  justify-self: center;
+  width: min(100%, 420px);
+  order: 2;
+}
+
+.proj-card {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  grid-template-rows: 1fr;
+}
+
+.proj-copy {
+  order: 1;
+}
+
+.proj-media {
+  order: 2;
+}
+
+@media (max-width: 899px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-photo {
+    justify-self: start;
+    width: min(68vw, 280px);
+    order: 0;
+  }
+
+  .proj-card {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+
+  .proj-copy {
+    order: 2;
+  }
+
+  .proj-media {
+    order: 1;
+  }
+}
+
 /* No mobile (< 900px, o mesmo breakpoint do layout do hero) os anéis
    decorativos da foto (132/160/190% da coluna) ultrapassam a coluna e
    sobrepõem os textos ao lado/embaixo. Escondidos abaixo do breakpoint. */
