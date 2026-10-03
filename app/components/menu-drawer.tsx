@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useLang, useT } from '@/app/components/language-provider';
+import { useActiveSection } from '@/app/components/use-active-section';
 import { PhIcon } from '@/app/components/ph-icon';
 import { IDS, LANGS, LANG_GROUP_LABEL, SOCIALS } from '@/app/lib/content';
 
@@ -9,23 +10,7 @@ export function MenuDrawer() {
   const t = useT();
   const { lang, setLang } = useLang();
   const [menu, setMenu] = useState(false);
-  const [active, setActive] = useState<string>('inicio');
-
-  useEffect(() => {
-    const spy = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActive(e.target.id);
-        });
-      },
-      { rootMargin: '-45% 0px -50% 0px' },
-    );
-    IDS.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) spy.observe(el);
-    });
-    return () => spy.disconnect();
-  }, []);
+  const active = useActiveSection();
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {

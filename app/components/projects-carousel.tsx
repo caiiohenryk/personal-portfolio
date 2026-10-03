@@ -55,7 +55,7 @@ export function ProjectsCarousel() {
             position: 'absolute',
             right: '-2vw',
             bottom: '-6vw',
-            fontFamily: 'var(--font-heading)',
+            fontFamily: 'var(--font-display)',
             fontWeight: 500,
             fontSize: 'clamp(200px, 34vw, 480px)',
             lineHeight: 1,
@@ -84,25 +84,14 @@ export function ProjectsCarousel() {
           }}
         >
           <div>
-            <span
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 12,
-                fontSize: 13,
-                letterSpacing: '0.06em',
-                textTransform: 'uppercase',
-                color: 'var(--color-accent)',
-                margin: '0 0 12px',
-              }}
-            >
-              <span style={{ width: 28, height: 1, background: 'var(--color-accent)' }} />
+            <span className="kicker" style={{ margin: '0 0 12px' }}>
+              <span className="kicker-rule" />
               {t.projKicker}
             </span>
             <h2
               style={{
                 margin: 0,
-                fontFamily: 'var(--font-heading)',
+                fontFamily: 'var(--font-display)',
                 fontWeight: 500,
                 fontSize: 'clamp(26px, 3.4vw, 40px)',
                 lineHeight: 1.12,
@@ -115,6 +104,7 @@ export function ProjectsCarousel() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
             <span
               style={{
+                fontFamily: 'var(--font-mono)',
                 fontSize: 14,
                 fontFeatureSettings: "'tnum' 1",
                 color: 'color-mix(in srgb, var(--color-text) 70%, transparent)',
@@ -198,13 +188,13 @@ export function ProjectsCarousel() {
                       minWidth: 0,
                     }}
                   >
-                    <p style={{ margin: 0, fontSize: 12, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--color-accent-300)' }}>
+                    <p className="mono" style={{ margin: 0, fontSize: 12, letterSpacing: '0.02em', color: 'var(--color-neutral-300)' }}>
                       {p.kind}
                     </p>
                     <h3
                       style={{
                         margin: 0,
-                        fontFamily: 'var(--font-heading)',
+                        fontFamily: 'var(--font-display)',
                         fontWeight: 500,
                         fontSize: 'clamp(26px, 3.6vw, 48px)',
                         lineHeight: 1.08,

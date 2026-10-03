@@ -2,9 +2,14 @@
 
 import { useCallback, type CSSProperties, type ElementType, type ReactNode } from 'react';
 
+type Variant = 'rise' | 'mask' | 'fade';
+
+const EASE = 'cubic-bezier(.2,.7,.2,1)';
+
 export function Reveal({
   as: Tag = 'div',
   delay = 0,
+  variant = 'rise',
   style,
   className,
   children,
@@ -12,6 +17,7 @@ export function Reveal({
 }: {
   as?: ElementType;
   delay?: number;
+  variant?: Variant;
   style?: CSSProperties;
   className?: string;
   children?: ReactNode;
@@ -25,11 +31,18 @@ export function Reveal({
       ) {
         return;
       }
-      const base = el.style.transition ? el.style.transition + ', ' : '';
-      el.style.transition =
-        base + 'opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)';
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(22px)';
+
+      if (variant === 'mask') {
+        el.style.clipPath = 'inset(0 100% 0 0)';
+        el.style.transition = `clip-path .95s ${EASE}`;
+      } else if (variant === 'fade') {
+        el.style.opacity = '0';
+        el.style.transition = `opacity .95s ${EASE}`;
+      } else {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(22px)';
+        el.style.transition = `opacity .7s ${EASE}, transform .7s ${EASE}`;
+      }
 
       let clearTimer: ReturnType<typeof setTimeout> | undefined;
       const io = new IntersectionObserver(
@@ -38,11 +51,15 @@ export function Reveal({
             if (!e.isIntersecting) continue;
             io.unobserve(el);
             el.style.transitionDelay = delay + 'ms';
-            el.style.opacity = '1';
-            el.style.transform = '';
+            if (variant === 'mask') {
+              el.style.clipPath = 'inset(0 0 0 0)';
+            } else {
+              el.style.opacity = '1';
+              if (variant === 'rise') el.style.transform = '';
+            }
             clearTimer = setTimeout(() => {
               el.style.transitionDelay = '';
-            }, delay + 800);
+            }, delay + 1100);
           }
         },
         { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
@@ -53,7 +70,7 @@ export function Reveal({
         if (clearTimer) clearTimeout(clearTimer);
       };
     },
-    [delay],
+    [delay, variant],
   );
 
   return (

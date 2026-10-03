@@ -31,7 +31,6 @@ export interface Dict {
   skillsKicker: string;
   skillsTitle: string;
   skillsSub: string;
-  whatIKnow: string;
   prev: string;
   next: string;
   expKicker: string;
@@ -47,9 +46,9 @@ export interface Dict {
   backTop: string;
 }
 
-export interface SkillCatPoints {
+export interface SkillText {
   cat: string;
-  points: string[];
+  line: string;
 }
 
 export interface SkillData {
@@ -58,8 +57,8 @@ export interface SkillData {
   nameEn?: string;
 
   icon: string;
-  pt: SkillCatPoints;
-  en: SkillCatPoints;
+  pt: SkillText;
+  en: SkillText;
 }
 
 export interface Social {
@@ -96,10 +95,9 @@ export const I18N: Record<Lang, Dict> = {
       'Tenho experiência arquitetando sistemas em cloud para entregar soluções de ponta a ponta, atuando com desenvolvimento, entrega em nuvem e concepção de aplicações, do desenho da arquitetura ao deploy em produção.',
     about2:
       'Trabalho com Node.js, Go, NestJS, Next.js, AWS/Azure e Terraform, e gosto de fechar o ciclo: conceber, construir, subir na nuvem e acompanhar o comportamento real da solução em produção.',
-    skillsKicker: 'Skills',
-    skillsTitle: 'Tecnologias que uso',
-    skillsSub: 'Arraste para o lado e veja como aplico cada uma.',
-    whatIKnow: 'O que sei',
+    skillsKicker: 'Stack',
+    skillsTitle: 'Com o que eu trabalho',
+    skillsSub: 'O que eu uso e o que eu faço com cada tecnologia.',
     prev: 'Anterior',
     next: 'Próximo',
 
@@ -175,10 +173,9 @@ export const I18N: Record<Lang, Dict> = {
       'I have experience architecting cloud systems to deliver end-to-end solutions, working across development, cloud delivery and application design, from architecture drawing to production deploy.',
     about2:
       'I work with Node.js, Go, NestJS, Next.js, AWS/Azure and Terraform, and I like closing the loop: conceive it, build it, ship it to the cloud and watch how the solution really behaves in production.',
-    skillsKicker: 'Skills',
-    skillsTitle: 'Technologies I use',
-    skillsSub: 'Swipe sideways to see how I apply each one.',
-    whatIKnow: 'What I know',
+    skillsKicker: 'Stack',
+    skillsTitle: 'What I work with',
+    skillsSub: 'What I use and what I do with each technology.',
     prev: 'Previous',
     next: 'Next',
 
@@ -252,19 +249,11 @@ export const SKILLS: SkillData[] = [
     icon: 'ph-hexagon',
     pt: {
       cat: 'Back-end',
-      points: [
-        'APIs REST e GraphQL com NestJS e Express',
-        'Pipelines e integrações de alto volume de dados',
-        'Filas, workers e jobs em produção',
-      ],
+      line: 'APIs, integrações e pipelines de alto volume rodando em produção.',
     },
     en: {
       cat: 'Back-end',
-      points: [
-        'REST and GraphQL APIs with NestJS and Express',
-        'High-volume pipelines and data integrations',
-        'Queues, workers and scheduled jobs in production',
-      ],
+      line: 'APIs, integrations and high-volume pipelines running in production.',
     },
   },
   {
@@ -272,19 +261,11 @@ export const SKILLS: SkillData[] = [
     icon: 'ph-lightning',
     pt: {
       cat: 'Back-end',
-      points: [
-        'Microsserviços com alta concorrência',
-        'CLI e ferramentas internas performáticas',
-        'Binário estático e deploys enxutos',
-      ],
+      line: 'Microsserviços concorrentes e ferramentas internas de linha de comando.',
     },
     en: {
       cat: 'Back-end',
-      points: [
-        'Microservices with heavy concurrency',
-        'Fast internal CLIs and tooling',
-        'Static binaries and lean deployments',
-      ],
+      line: 'Concurrent microservices and internal command-line tooling.',
     },
   },
   {
@@ -292,19 +273,11 @@ export const SKILLS: SkillData[] = [
     icon: 'ph-cube',
     pt: {
       cat: 'Back-end',
-      points: [
-        'Arquitetura modular com injeção de dependência',
-        'APIs escaláveis e tipadas com TypeScript',
-        'Microsserviços e mensageria',
-      ],
+      line: 'Arquitetura modular de APIs e microsserviços em TypeScript.',
     },
     en: {
       cat: 'Back-end',
-      points: [
-        'Modular architecture with dependency injection',
-        'Scalable, type-safe APIs with TypeScript',
-        'Microservices and messaging',
-      ],
+      line: 'Modular API and microservice architecture in TypeScript.',
     },
   },
   {
@@ -312,39 +285,11 @@ export const SKILLS: SkillData[] = [
     icon: 'ph-triangle',
     pt: {
       cat: 'Front-end',
-      points: [
-        'App Router, SSR/SSG e Server Components',
-        'SEO e performance (Core Web Vitals)',
-        'Portais e produtos full-stack',
-      ],
+      line: 'Portais e produtos full-stack, com foco em SEO e performance.',
     },
     en: {
       cat: 'Front-end',
-      points: [
-        'App Router, SSR/SSG and Server Components',
-        'SEO and performance (Core Web Vitals)',
-        'Full-stack portals and products',
-      ],
-    },
-  },
-  {
-    name: 'Cloud (AWS, Azure)',
-    icon: 'ph-cloud',
-    pt: {
-      cat: 'Cloud',
-      points: [
-        'Arquitetura de soluções ponta a ponta',
-        'Deploy, escala e operação de aplicações',
-        'Observabilidade e ambientes isolados',
-      ],
-    },
-    en: {
-      cat: 'Cloud',
-      points: [
-        'End-to-end solution architecture',
-        'Application deployment, scaling and operations',
-        'Observability and isolated environments',
-      ],
+      line: 'Full-stack portals and products, focused on SEO and performance.',
     },
   },
   {
@@ -352,19 +297,23 @@ export const SKILLS: SkillData[] = [
     icon: 'ph-stack',
     pt: {
       cat: 'Infraestrutura',
-      points: [
-        'Infraestrutura como código reprodutível',
-        'Provisionamento de ambientes em AWS e Azure',
-        'Módulos, padrões e versionamento de infra',
-      ],
+      line: 'Infraestrutura como código reproduzível entre ambientes.',
     },
     en: {
       cat: 'Infrastructure',
-      points: [
-        'Reproducible infrastructure as code',
-        'Environment provisioning on AWS and Azure',
-        'Modules, patterns and versioned infra',
-      ],
+      line: 'Reproducible infrastructure as code across environments.',
+    },
+  },
+  {
+    name: 'Cloud (AWS, Azure)',
+    icon: 'ph-cloud',
+    pt: {
+      cat: 'Cloud',
+      line: 'Deploy, escala e operação de aplicações na nuvem.',
+    },
+    en: {
+      cat: 'Cloud',
+      line: 'Deploying, scaling and operating applications in the cloud.',
     },
   },
 ];
