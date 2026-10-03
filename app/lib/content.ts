@@ -102,7 +102,7 @@ export const I18N: Record<Lang, Dict> = {
     greet: 'Olá, eu sou',
     roles: ['Engenheiro de Software', 'Desenvolvedor Back-end', 'Arquitetura Cloud'],
     heroSub:
-      'Arqueto sistemas em cloud para entregar soluções de ponta a ponta — da concepção da aplicação ao deploy, unindo desenvolvimento, entrega em nuvem e arquitetura.',
+      'Arqueto sistemas em cloud para entregar soluções de ponta a ponta, da concepção da aplicação ao deploy, unindo desenvolvimento, entrega em nuvem e arquitetura.',
     ctaProjects: 'Ver projetos',
     // Real: Caio mora em João Pessoa, PB.
     location: 'João Pessoa, Brasil',
@@ -123,25 +123,25 @@ export const I18N: Record<Lang, Dict> = {
     expTitle: 'Onde trabalhei',
     experience: [
       {
-        period: 'Nov 2025 — Atual',
+        period: 'Nov 2025 - Atual',
         role: 'Desenvolvedor Node',
         company: 'ioasys · Belo Horizonte, MG',
         desc: 'Back-end com Node.js em uma empresa de eficiência digital: construção de sistemas distribuídos de alta performance, atuando do desenvolvimento à entrega em cloud.',
       },
       {
-        period: 'Abr 2025 — Atual',
+        period: 'Abr 2025 - Atual',
         role: 'Desenvolvedor Back-End',
         company: 'hooney+ · São Paulo, SP',
         desc: 'APIs e serviços de back-end em uma software house, com TypeScript, integrações robustas e foco na qualidade do que chega em produção.',
       },
       {
-        period: 'Ago 2024 — Jan 2025',
+        period: 'Ago 2024 - Jan 2025',
         role: 'Desenvolvedor Back-End .NET',
         company: 'Btor Soluções Computacionais · João Pessoa, PB',
         desc: 'Desenvolvimento e manutenção de serviços e APIs corporativos em C#/.NET, com foco em estabilidade e evolução contínua.',
       },
       {
-        period: 'Jun 2023 — Jul 2024',
+        period: 'Jun 2023 - Jul 2024',
         role: 'Desenvolvedor Back-End',
         company: 'Fábrica de Software UBTech Office · Unipê',
         desc: 'Construção de APIs e sistemas para clientes reais na fábrica de software da Unipê, do desenvolvimento à entrega.',
@@ -153,7 +153,7 @@ export const I18N: Record<Lang, Dict> = {
       {
         kind: 'Plataforma web',
         title: 'AI Summit Brasil',
-        desc: 'Concepção, arquitetura e desenvolvimento do novo portal do AI Summit Brasil, o maior evento de IA do país: uma plataforma de conteúdo e inscrições pensada para performar nos picos de audiência e entregue de ponta a ponta — do design da solução ao deploy em cloud.',
+        desc: 'Concepção, arquitetura e desenvolvimento do novo portal do AI Summit Brasil, o maior evento de IA do país: uma plataforma de conteúdo e inscrições pensada para performar nos picos de audiência e entregue de ponta a ponta, do design da solução ao deploy em cloud.',
       },
       {
         kind: 'Back-end',
@@ -163,7 +163,7 @@ export const I18N: Record<Lang, Dict> = {
       {
         kind: 'Microsserviços',
         title: 'Inhotim',
-        desc: 'Desenvolvimento e manutenção de diversos microsserviços que sustentam o app do Inhotim, o maior museu a céu aberto do mundo, com NestJS — arquitetura pensada para a experiência do visitante e para escalar em produção.',
+        desc: 'Desenvolvimento e manutenção de diversos microsserviços que sustentam o app do Inhotim, o maior museu a céu aberto do mundo, com NestJS e uma arquitetura pensada para a experiência do visitante e para escalar em produção.',
       },
     ],
     projPlaceholder: 'Imagem do projeto',
@@ -181,7 +181,7 @@ export const I18N: Record<Lang, Dict> = {
     greet: "Hi, I'm",
     roles: ['Software Engineer', 'Backend Developer', 'Cloud Architecture'],
     heroSub:
-      'I architect cloud systems to deliver end-to-end solutions — from application design to deployment, combining development, cloud delivery and architecture.',
+      'I architect cloud systems to deliver end-to-end solutions, from application design to deployment, combining development, cloud delivery and architecture.',
     ctaProjects: 'See projects',
     // Real: Caio mora em João Pessoa, PB.
     location: 'João Pessoa, Brazil',
@@ -202,25 +202,25 @@ export const I18N: Record<Lang, Dict> = {
     expTitle: "Where I've worked",
     experience: [
       {
-        period: 'Nov 2025 — Present',
+        period: 'Nov 2025 - Present',
         role: 'Node Developer',
         company: 'ioasys · Belo Horizonte, MG',
         desc: 'Back-end with Node.js at a digital efficiency company: building high-performance distributed systems, working from development to cloud delivery.',
       },
       {
-        period: 'Apr 2025 — Present',
+        period: 'Apr 2025 - Present',
         role: 'Backend Developer',
         company: 'hooney+ · São Paulo, SP',
         desc: 'APIs and backend services at a software house, with TypeScript, robust integrations and a focus on production quality.',
       },
       {
-        period: 'Aug 2024 — Jan 2025',
+        period: 'Aug 2024 - Jan 2025',
         role: '.NET Backend Developer',
         company: 'Btor Soluções Computacionais · João Pessoa, PB',
         desc: 'Developed and maintained corporate services and APIs in C#/.NET, focused on stability and continuous evolution.',
       },
       {
-        period: 'Jun 2023 — Jul 2024',
+        period: 'Jun 2023 - Jul 2024',
         role: 'Backend Developer',
         company: 'UBTech Office Software Factory · Unipê',
         desc: 'Built APIs and systems for real clients at Unipê\'s software factory, from development to delivery.',
@@ -232,7 +232,7 @@ export const I18N: Record<Lang, Dict> = {
       {
         kind: 'Web platform',
         title: 'AI Summit Brasil',
-        desc: 'Conception, architecture and development of the new AI Summit Brasil portal — the country\'s biggest AI event: a content and ticketing platform built to perform during traffic peaks and delivered end to end, from solution design to cloud deployment.',
+        desc: 'Conception, architecture and development of the new AI Summit Brasil portal, the country\'s biggest AI event: a content and ticketing platform built to perform during traffic peaks and delivered end to end, from solution design to cloud deployment.',
       },
       {
         kind: 'Back-end',
@@ -242,7 +242,7 @@ export const I18N: Record<Lang, Dict> = {
       {
         kind: 'Microservices',
         title: 'Inhotim',
-        desc: 'Developed and maintained several microservices powering the app of Inhotim, the world\'s largest open-air museum, using NestJS — architecture designed for the visitor experience and to scale in production.',
+        desc: 'Developed and maintained several microservices powering the app of Inhotim, the world\'s largest open-air museum, using NestJS and an architecture designed for the visitor experience and to scale in production.',
       },
     ],
     projPlaceholder: 'Project image',
