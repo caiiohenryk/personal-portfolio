@@ -153,7 +153,7 @@ export const I18N: Record<Lang, Dict> = {
       {
         kind: 'Plataforma web',
         title: 'AI Summit Brasil',
-        desc: 'Concepção, arquitetura e desenvolvimento do novo portal do AI Summit Brasil, o maior evento de IA do país: uma plataforma de conteúdo e inscrições pensada para performar nos picos de audiência e entregue de ponta a ponta, do design da solução ao deploy em cloud.',
+        desc: 'Concepção, arquitetura e desenvolvimento do novo portal do AI Summit Brasil, o maior evento de IA do país: uma plataforma de conteúdo e inscrições pensada para performar nos picos de audiência e entregue de ponta a ponta, do design da solução ao deploy em cloud com Terraform.',
       },
       {
         kind: 'Back-end',
@@ -232,7 +232,7 @@ export const I18N: Record<Lang, Dict> = {
       {
         kind: 'Web platform',
         title: 'AI Summit Brasil',
-        desc: 'Conception, architecture and development of the new AI Summit Brasil portal, the country\'s biggest AI event: a content and ticketing platform built to perform during traffic peaks and delivered end to end, from solution design to cloud deployment.',
+        desc: 'Conception, architecture and development of the new AI Summit Brasil portal, the country\'s biggest AI event: a content and ticketing platform built to perform during traffic peaks and delivered end to end, from solution design to cloud deployment with Terraform.',
       },
       {
         kind: 'Back-end',
@@ -404,7 +404,7 @@ export const EXP_TAGS: string[][] = [
 
 // Tags dos projetos reais, zipadas por índice com I18N.*.projects.
 export const PROJ_TAGS: string[][] = [
-  ['Next.js', 'Node.js', 'Cloud'],
+  ['Next.js', 'Node.js', 'Terraform', 'Cloud'],
   ['Node.js', 'APIs', 'Cloud'],
   ['NestJS', 'Microsserviços', 'Cloud'],
 ];
