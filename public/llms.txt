@@ -1,0 +1,22 @@
+# Caio Chaves — Engenheiro de Software
+
+Portfólio de Caio Chaves, engenheiro de software brasileiro (João Pessoa, PB) especializado em back-end e cloud: Node.js, Go, NestJS, Next.js, AWS, Azure e Terraform, entregando soluções de ponta a ponta, do desenho da arquitetura ao deploy em produção.
+
+## Experiência
+
+- [ioasys — Desenvolvedor Node (Nov 2025 - Atual)](https://www.linkedin.com/in/caiiohenryk/): back-end Node.js, sistemas distribuídos de alta performance, entrega em cloud.
+- [hooney+ — Desenvolvedor Back-End (Abr 2025 - Atual)](https://www.linkedin.com/in/caiiohenryk/): APIs e serviços back-end com TypeScript.
+- [Btor Soluções Computacionais — Desenvolvedor Back-End .NET (Ago 2024 - Jan 2025)](https://www.linkedin.com/in/caiiohenryk/): serviços e APIs corporativos em C#/.NET.
+- [Fábrica de Software UBTech Office / Unipê — Desenvolvedor Back-End (Jun 2023 - Jul 2024)](https://www.linkedin.com/in/caiiohenryk/): APIs e sistemas para clientes reais.
+
+## Projetos
+
+- [AI Summit Brasil](https://aisummit.ia.br): portal do maior evento de IA do país; arquitetura e desenvolvimento full-stack com deploy em cloud via Terraform.
+- [App Araguaia Consultor](https://play.google.com/store/apps/details?id=br.com.araguaia.consultor&hl=pt): back-end Node.js processando mais de 1 GB de arquivos por dia para consultores.
+- [App Inhotim](https://play.google.com/store/apps/details?id=br.org.inhotim&hl=pt): microsserviços NestJS do app do maior museu a céu aberto do mundo.
+
+## Contato
+
+- GitHub: [caiiohenryk](https://github.com/caiiohenryk)
+- LinkedIn: [in/caiiohenryk](https://www.linkedin.com/in/caiiohenryk/)
+- E-mail: [caiohc.dev@gmail.com](mailto:caiohc.dev@gmail.com)
