@@ -4,12 +4,6 @@ import { useEffect, useRef, useState } from 'react';
 import { useT } from '@/app/components/language-provider';
 import { PhIcon } from '@/app/components/ph-icon';
 
-/**
- * Voltar-ao-topo com anel de progresso do scroll — HTML linhas 274–277 +
- * lógica 409–411/556–560: aparece após 320px; anel SVG r=120 pathLength=100
- * com stroke-dashoffset = 100 − progresso·100. Updates filtrados por
- * epsilon (linha 419).
- */
 export function BackToTop() {
   const t = useT();
   const [show, setShow] = useState(false);

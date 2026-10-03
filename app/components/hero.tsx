@@ -7,13 +7,6 @@ import { PhIcon } from '@/app/components/ph-icon';
 import { Reveal } from '@/app/components/reveal';
 import { PROFILE, SOCIALS } from '@/app/lib/content';
 
-/**
- * Efeito de digitação portado do `tick()` do design (HTML linhas 454–467):
- * 75ms/char digitando, 40ms apagando, pausa de 2200ms no fim da palavra,
- * 350ms antes do próximo papel; reseta quando o idioma (roles) muda.
- * SSR-render seguro: o servidor nunca renderiza `roles[0]` — o fallback é
- * ZWSP (linha 520 do design), e o efeito só começa após o mount.
- */
 function useTypingEffect(roles: string[]): string {
   const [typed, setTyped] = useState('');
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
@@ -68,7 +61,7 @@ export function Hero() {
       id="inicio"
       style={{ position: 'relative', overflow: 'hidden', minHeight: '100svh', display: 'flex', alignItems: 'center' }}
     >
-      {/* {{ heroGlow }} — linha 522 do design */}
+      {}
       <div
         aria-hidden="true"
         className="glow-drift"
@@ -100,7 +93,7 @@ export function Hero() {
         }}
         className="hero-grid"
       >
-        {/* Coluna de texto */}
+        {}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', minWidth: 0, order: 1 }}>
           <Reveal
             as="p"
@@ -189,7 +182,7 @@ export function Hero() {
           </Reveal>
         </div>
 
-        {/* Coluna da foto */}
+        {}
         <Reveal
           delay={160}
           className="hero-photo"
@@ -212,7 +205,7 @@ export function Hero() {
               pointerEvents: 'none',
             }}
           />
-          {/* {{ orbit }} — linhas 524–526 */}
+          {}
           <div
             aria-hidden="true"
             className="orbit-spin hero-orbit"

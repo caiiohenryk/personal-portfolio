@@ -25,7 +25,6 @@ const h2Style: React.CSSProperties = {
   letterSpacing: '-0.02em',
 };
 
-/** Seção Sobre — HTML linhas 71–82. */
 export function About() {
   const t = useT();
   return (

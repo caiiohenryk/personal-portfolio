@@ -1,15 +1,3 @@
-/**
- * content.ts — FONTE ÚNICA DE VERDADE do conteúdo e das strings do portfólio.
- *
- * Todo texto visível na UI vem deste arquivo (regra do plano, Decisão C):
- * os componentes não podem conter nenhuma string de conteúdo hard-coded.
- *
- * Dados reais fornecidos por Caio em `infos-reais.txt` (01/10): cargo,
- * tecnologias (SEM níveis), texto sobre cloud/ponta-a-ponta, foto e os
- * 3 projetos com links. Blocos ainda pendentes de dados reais estão
- * marcados com `// PLACEHOLDER — substituir com dados reais do Caio`.
- */
-
 export type Lang = 'pt' | 'en';
 
 export interface ExperienceItem {
@@ -66,9 +54,9 @@ export interface SkillCatPoints {
 
 export interface SkillData {
   name: string;
-  /** Nome em inglês, quando diferente (ex.: 'Testes' → 'Testing'). */
+
   nameEn?: string;
-  /** Nome kebab-case do ícone Phosphor (key no mapa de `ph-icon.tsx`). */
+
   icon: string;
   pt: SkillCatPoints;
   en: SkillCatPoints;
@@ -81,17 +69,13 @@ export interface Social {
 }
 
 export interface ProjectLink {
-  /** Opcional: sem repositório público, o botão "Código" some do card. */
+
   codeUrl?: string;
   demoUrl: string;
-  /** Caminho em /public (ex.: '/images/projects/p1.png'); vazio = placeholder. */
+
   image?: string;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Dicionário I18N (pt-BR + en). Cargo, textos do hero/sobre e projetos reais
-// (infos-reais.txt). Stats, localização e experiência ainda são PLACEHOLDER.
-// ─────────────────────────────────────────────────────────────────────────────
 export const I18N: Record<Lang, Dict> = {
   pt: {
     nav: ['Início', 'Sobre', 'Skills', 'Experiência', 'Projetos'],
@@ -104,7 +88,7 @@ export const I18N: Record<Lang, Dict> = {
     heroSub:
       'Arqueto sistemas em cloud para entregar soluções de ponta a ponta, da concepção da aplicação ao deploy, unindo desenvolvimento, entrega em nuvem e arquitetura.',
     ctaProjects: 'Ver projetos',
-    // Real: Caio mora em João Pessoa, PB.
+
     location: 'João Pessoa, Brasil',
     aboutKicker: 'Sobre mim',
     aboutTitle: 'Soluções de ponta a ponta',
@@ -118,7 +102,7 @@ export const I18N: Record<Lang, Dict> = {
     whatIKnow: 'O que sei',
     prev: 'Anterior',
     next: 'Próximo',
-    // Real (LinkedIn, ago/2026): ~3 anos somados; ioasys e hooney+ simultâneas.
+
     expKicker: 'Experiência',
     expTitle: 'Onde trabalhei',
     experience: [
@@ -183,7 +167,7 @@ export const I18N: Record<Lang, Dict> = {
     heroSub:
       'I architect cloud systems to deliver end-to-end solutions, from application design to deployment, combining development, cloud delivery and architecture.',
     ctaProjects: 'See projects',
-    // Real: Caio mora em João Pessoa, PB.
+
     location: 'João Pessoa, Brazil',
     aboutKicker: 'About me',
     aboutTitle: 'End-to-end solutions',
@@ -197,7 +181,7 @@ export const I18N: Record<Lang, Dict> = {
     whatIKnow: 'What I know',
     prev: 'Previous',
     next: 'Next',
-    // Real (LinkedIn, ago/2026): ~3 anos somados; ioasys e hooney+ simultâneas.
+
     expKicker: 'Experience',
     expTitle: "Where I've worked",
     experience: [
@@ -253,24 +237,15 @@ export const I18N: Record<Lang, Dict> = {
   },
 };
 
-// Ids das seções (HTML linha 344) — ordem do nav e do scroll-spy.
 export const IDS = ['inicio', 'sobre', 'skills', 'experiencia', 'projetos'] as const;
 
-// Botões do seletor de idioma (HTML linhas 501): código + rótulo fixos do design.
 export const LANGS: { code: Lang; label: string }[] = [
   { code: 'pt', label: 'Português' },
   { code: 'en', label: 'English' },
 ];
 
-// aria-label do grupo de idioma (rótulo fixo do template do design, linha 253).
 export const LANG_GROUP_LABEL = 'Idioma / Language';
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Skills REAIS (infos-reais.txt): Node.js, Go, NestJS, Next.js, Cloud
-// (AWS, Azure), Terraform — sem níveis de conhecimento (removidos do site).
-// Os pontos "O que sei" descrevem o uso típico de cada tecnologia; revise o
-// texto se quiser outro enfoque.
-// ─────────────────────────────────────────────────────────────────────────────
 export const SKILLS: SkillData[] = [
   {
     name: 'Node.js',
@@ -394,7 +369,6 @@ export const SKILLS: SkillData[] = [
   },
 ];
 
-// Tags da experiência real (zipadas por índice com I18N.*.experience).
 export const EXP_TAGS: string[][] = [
   ['Node.js', 'NestJS', 'Cloud'],
   ['TypeScript', 'APIs', 'Back-end'],
@@ -402,27 +376,18 @@ export const EXP_TAGS: string[][] = [
   ['Node.js', 'APIs', 'SQL'],
 ];
 
-// Tags dos projetos reais, zipadas por índice com I18N.*.projects.
 export const PROJ_TAGS: string[][] = [
   ['Next.js', 'Node.js', 'Terraform', 'Cloud'],
   ['Node.js', 'APIs', 'Cloud'],
   ['NestJS', 'Microsserviços', 'Cloud'],
 ];
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Sociais reais (infos-reais.txt + LinkedIn): GitHub, LinkedIn e e-mail.
-// Instagram removido a pedido.
-// ─────────────────────────────────────────────────────────────────────────────
 export const SOCIALS: Social[] = [
   { label: 'GitHub', icon: 'ph-github-logo', href: 'https://github.com/caiiohenryk' },
   { label: 'LinkedIn', icon: 'ph-linkedin-logo', href: 'https://www.linkedin.com/in/caiiohenryk/' },
   { label: 'E-mail', icon: 'ph-envelope-simple', href: 'mailto:caiohc.dev@gmail.com' },
 ];
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Perfil: nome/cargo reais (infos-reais.txt); foto enviada renomeada para
-// public/images/caio-chaves.jpg. CV removido a pedido.
-// ─────────────────────────────────────────────────────────────────────────────
 export const PROFILE = {
   name: 'Caio Chaves',
   roleTitle: 'Engenheiro de Software',
@@ -430,10 +395,6 @@ export const PROFILE = {
   photoAlt: 'Foto de Caio Chaves',
 };
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Links e screenshots reais por projeto (zipado por índice com
-// I18N.*.projects). Sem codeUrl, o botão "Código" não é renderizado.
-// ─────────────────────────────────────────────────────────────────────────────
 export const PROJECT_LINKS: ProjectLink[] = [
   { demoUrl: 'https://aisummit.ia.br', image: '/images/projects/ai-summit.jpg' },
   {
@@ -446,5 +407,4 @@ export const PROJECT_LINKS: ProjectLink[] = [
   },
 ];
 
-// Chave do localStorage do seletor de idioma (idêntica ao design, linha 393).
 export const LANG_STORAGE_KEY = 'cc-portfolio-lang';

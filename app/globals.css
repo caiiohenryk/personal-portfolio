@@ -1,11 +1,5 @@
 @import "tailwindcss";
 
-/* ══════════════════════════════════════════════════════════════════════════
-   Nocturne design system — tokens. Copiado verbatim do styles.css do
-   design-system "nocturne" (pasta de referência do projeto de design,
-   linhas 4–81). Esta é a fonte de verdade em runtime; os comentários do
-   sistema foram podados, os valores NÃO.
-   ══════════════════════════════════════════════════════════════════════════ */
 :root {
   --color-bg: #161826;
   --color-surface: #232532;
@@ -68,8 +62,6 @@
   --shadow-lg: 0 0 0 1px #9397ab, 0 16px 40px rgba(0, 0, 0, 0.65);
 }
 
-/* Exposição dos tokens ao Tailwind v4. `inline` mantém `:root` como fonte
-   única (as utilidades emitem var(--color-…) em vez de duplicar hex). */
 @theme inline {
   --color-bg: var(--color-bg);
   --color-surface: var(--color-surface);
@@ -106,12 +98,6 @@
   --shadow-lg: var(--shadow-lg);
 }
 
-/* ══════════════════════════════════════════════════════════════════════════
-   Base — regras globais da página (HTML <style> linhas 16–27 + body inline)
-   combinadas com o reset de tipos do Nocturne (styles.css linhas 98–122).
-   As fontes vêm de next/font (Inter com nome de família "Inter"), nunca de
-   @import de CDN.
-   ══════════════════════════════════════════════════════════════════════════ */
 *,
 *::before,
 *::after {
@@ -186,8 +172,6 @@ img {
   background: color-mix(in srgb, var(--color-accent) 30%, transparent);
 }
 
-/* Keyframes do design (HTML linhas 24–26) — o spin carrega o translate do
-   próprio elemento porque a animação substitui o transform base. */
 @keyframes blink {
   50% {
     opacity: 0;
@@ -210,13 +194,6 @@ img {
   }
 }
 
-/* ══════════════════════════════════════════════════════════════════════════
-   Camada de componentes — copiada/adaptada do styles.css do design-system
-   "nocturne" (as glifos da webfont `ph` foram removidos; os ícones são SVG
-   do pacote @phosphor-icons/react).
-   ══════════════════════════════════════════════════════════════════════════ */
-
-/* — buttons — */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -288,7 +265,6 @@ img {
   padding: 0;
 }
 
-/* — cards — */
 .card {
   display: flex;
   flex-direction: column;
@@ -298,7 +274,6 @@ img {
   background: var(--color-surface);
 }
 
-/* — tags — */
 .tag {
   display: inline-flex;
   align-items: center;
@@ -323,18 +298,11 @@ img {
   color: var(--color-accent);
 }
 
-/* — imagem — */
 .lighten {
   mix-blend-mode: lighten;
   background-color: transparent;
 }
 
-/* ══════════════════════════════════════════════════════════════════════════
-   Helpers — os atributos `style-hover`/`style-active` do export DC não
-   existem em browser real; aqui viram CSS de verdade (plan §5 step 5.6).
-   ══════════════════════════════════════════════════════════════════════════ */
-
-/* Tiles de social no hero (HTML linha 50) */
 .social-tile {
   transition: border-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
@@ -346,7 +314,6 @@ img {
   box-shadow: 0 0 18px color-mix(in srgb, var(--color-accent) 25%, transparent);
 }
 
-/* Tiles de social no drawer (HTML linha 261) */
 .drawer-social {
   transition: border-color 0.2s, color 0.2s;
 }
@@ -356,18 +323,15 @@ img {
   color: var(--color-accent) !important;
 }
 
-/* Card de skill (HTML linha 114) */
 .skill-card:hover {
   border-color: var(--color-accent-700) !important;
   transform: translateY(-4px);
 }
 
-/* Link do nav no drawer (HTML linha 242) */
 .menu-link:hover {
   color: var(--color-text) !important;
 }
 
-/* FAB hambúrguer (HTML linha 267) */
 .menu-fab {
   transition: border-color 0.2s, background 0.2s;
 }
@@ -380,7 +344,6 @@ img {
   background: var(--color-accent-800) !important;
 }
 
-/* Botão voltar-ao-topo (HTML linha 274) */
 .backtop {
   transition: opacity 0.3s, transform 0.3s, background 0.2s;
 }
@@ -393,8 +356,6 @@ img {
   background: var(--color-accent-800) !important;
 }
 
-/* Glow do hero e órbita da foto (linhas 522–526) — desligados sob
-   prefers-reduced-motion, como o design faz via prop `animations`. */
 .glow-drift {
   animation: drift 16s ease-in-out infinite;
 }
@@ -414,8 +375,12 @@ img {
   }
 }
 
-/* Layout responsivo do hero e dos projetos via media queries (em vez de
-   estado JS que re-renderizava após hidratação e gerava layout shift). */
+@media (max-width: 899px) {
+  .hero-orbit {
+    display: none;
+  }
+}
+
 .hero-grid {
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
 }
@@ -464,17 +429,6 @@ img {
   }
 }
 
-/* No mobile (< 900px, o mesmo breakpoint do layout do hero) os anéis
-   decorativos da foto (132/160/190% da coluna) ultrapassam a coluna e
-   sobrepõem os textos ao lado/embaixo. Escondidos abaixo do breakpoint. */
-@media (max-width: 899px) {
-  .hero-orbit {
-    display: none;
-  }
-}
-
-/* Esconde a scrollbar nativa do trilho de skills (o design mostra a barra
-   espelhada própria). */
 .no-scrollbar {
   scrollbar-width: none;
 }

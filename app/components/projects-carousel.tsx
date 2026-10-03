@@ -6,13 +6,6 @@ import { useT } from '@/app/components/language-provider';
 import { PhIcon } from '@/app/components/ph-icon';
 import { PROJ_TAGS, PROJECT_LINKS } from '@/app/lib/content';
 
-/**
- * Seção Projetos com pinning por scroll — HTML linhas 179–228 + lógica
- * 412–417/503–507: altura da seção = n·100svh, conteúdo sticky a 100svh;
- * progresso p = clamp(-rect.top / (rect.height - vh)); projIdx = floor(p·n).
- * Atualizações de state são filtradas por epsilon (0.003, linha 419) para
- * não brigar com o smooth-scroll.
- */
 export function ProjectsCarousel() {
   const t = useT();
   const n = t.projects.length;
@@ -56,7 +49,6 @@ export function ProjectsCarousel() {
   return (
     <section id="projetos" ref={sectionRef} style={{ position: 'relative', height: `${n * 100}svh` }}>
       <div style={{ position: 'sticky', top: 0, height: '100svh', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-        {/* Numeral fantasma */}
         <div
           aria-hidden="true"
           style={{
@@ -77,7 +69,6 @@ export function ProjectsCarousel() {
           {projNum}
         </div>
 
-        {/* Cabeçalho + contador + dots */}
         <div
           style={{
             position: 'relative',
@@ -166,7 +157,6 @@ export function ProjectsCarousel() {
           </div>
         </div>
 
-        {/* Palco de cards */}
         <div
           style={{
             position: 'relative',
@@ -320,7 +310,6 @@ export function ProjectsCarousel() {
           </div>
         </div>
 
-        {/* Barra de progresso inferior */}
         <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: 2, background: 'var(--color-neutral-900)' }}>
           <div
             style={{

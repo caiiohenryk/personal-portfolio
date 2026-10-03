@@ -8,11 +8,6 @@ import { SKILLS } from '@/app/lib/content';
 
 const TRACK_PAD = 'max(clamp(20px, 5vw, 72px), calc((100% - 1200px) / 2 + clamp(20px, 5vw, 72px)))';
 
-/**
- * Carrossel de skills — HTML linhas 99–147 + lógica 443–452/532–541:
- * trilho scroll-snap com drag de mouse (limiar 4px desliga o snap), botões
- * prev/next (scrollBy cardWidth+16) e barra-espelho com thumb proporcional.
- */
 export function SkillsCarousel() {
   const t = useT();
   const { lang } = useLang();
@@ -33,7 +28,7 @@ export function SkillsCarousel() {
   useEffect(() => {
     const onResize = () => measureSkills();
     window.addEventListener('resize', onResize);
-    const id = setTimeout(() => measureSkills(), 300); // como componentDidMount do design (linha 432)
+    const id = setTimeout(() => measureSkills(), 300);
     return () => {
       window.removeEventListener('resize', onResize);
       clearTimeout(id);
@@ -66,7 +61,7 @@ export function SkillsCarousel() {
         }}
       />
 
-      {/* Cabeçalho */}
+      {}
       <Reveal
         delay={0}
         style={{
@@ -135,7 +130,7 @@ export function SkillsCarousel() {
         </div>
       </Reveal>
 
-      {/* Trilho */}
+      {}
       <div
         ref={trackRef}
         onScroll={measureSkills}
@@ -256,7 +251,6 @@ export function SkillsCarousel() {
         ))}
       </div>
 
-      {/* Barra-espelho */}
       <div style={{ position: 'relative', maxWidth: 1200, margin: '20px auto 0', padding: '0 clamp(20px, 5vw, 72px)' }}>
         <div style={{ height: 2, borderRadius: 1, background: 'var(--color-neutral-800)', overflow: 'hidden', maxWidth: 320 }}>
           <div

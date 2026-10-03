@@ -1,7 +1,3 @@
-/**
- * Overlay fixo de ponto-dos-dot-grid do design (HTML linha 30) — CSS puro,
- * server component.
- */
 export function DotGrid() {
   return (
     <div

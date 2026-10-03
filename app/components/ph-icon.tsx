@@ -28,11 +28,6 @@ import {
   type Icon,
 } from '@phosphor-icons/react';
 
-/**
- * Mapa nome kebab-case do Phosphor webfont (usado no design e guardado em
- * content.ts, ex.: 'ph-file-ts') → componente React do @phosphor-icons/react.
- * Imports nomeados apenas (tree-shaking); nunca `import *`.
- */
 const ICONS: Record<string, Icon> = {
   'ph-arrow-down': ArrowDown,
   'ph-arrow-left': ArrowLeft,
@@ -72,7 +67,7 @@ export function PhIcon({
 }: {
   name: string;
   size?: number | string;
-  /** Peso do traço; o design usa só regular (≤ 500, regra Nocturne). */
+
   weight?: 'thin' | 'light' | 'regular' | 'bold' | 'fill' | 'duotone';
   style?: React.CSSProperties;
 }) {

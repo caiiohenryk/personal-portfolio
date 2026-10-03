@@ -11,13 +11,6 @@ interface LangCtx {
 
 const LanguageContext = createContext<LangCtx | null>(null);
 
-/**
- * Estado de idioma do design (getLang/setLang, HTML linhas 391–401):
- * default 'pt' no servidor e na primeira pintura (sem ler localStorage em
- * render → zero hydration mismatch); o efeito de hidratação lê
- * localStorage['cc-portfolio-lang'] e troca; cada mudança persiste e seta
- * document.documentElement.lang ('pt-BR' | 'en').
- */
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>('pt');
 
@@ -28,9 +21,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         if (saved !== lang) setLangState(saved);
       }
     } catch {
-      /* storage indisponível — segue com o default pt */
+
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, []);
 
   useEffect(() => {
@@ -41,7 +34,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     try {
       localStorage.setItem(LANG_STORAGE_KEY, l);
     } catch {
-      /* ignore */
+
     }
     setLangState(l);
   }, []);

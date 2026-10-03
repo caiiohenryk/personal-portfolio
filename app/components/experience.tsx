@@ -4,7 +4,6 @@ import { useT } from '@/app/components/language-provider';
 import { Reveal } from '@/app/components/reveal';
 import { EXP_TAGS } from '@/app/lib/content';
 
-/** Linha do tempo de experiência — HTML linhas 150–176. */
 export function Experience() {
   const t = useT();
   return (

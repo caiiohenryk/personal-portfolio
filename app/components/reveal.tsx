@@ -2,18 +2,6 @@
 
 import { useCallback, type CSSProperties, type ElementType, type ReactNode } from 'react';
 
-/**
- * Scroll-reveal fiel ao `setupReveal()` do design (HTML linhas 469–490):
- * IntersectionObserver próprio (threshold .12, rootMargin '0px 0px -40px'),
- * reveal único com transitionDelay = delay, transição .7s
- * cubic-bezier(.2,.7,.2,1) de opacity/transform.
- *
- * O servidor renderiza o elemento visível (bom p/ SEO e no-JS); o
- * escondimento acontece no ref callback — que roda na fase de commit, ANTES
- * do primeiro paint do cliente — então não há flash nem divergência de
- * hidratação. Sob prefers-reduced-motion o elemento permanece visível
- * (linhas 471/484 do design).
- */
 export function Reveal({
   as: Tag = 'div',
   delay = 0,

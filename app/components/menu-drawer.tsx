@@ -5,19 +5,12 @@ import { useLang, useT } from '@/app/components/language-provider';
 import { PhIcon } from '@/app/components/ph-icon';
 import { IDS, LANGS, LANG_GROUP_LABEL, SOCIALS } from '@/app/lib/content';
 
-/**
- * Drawer de navegação + FAB hambúrguer — HTML linhas 233–272 + lógica
- * 402–428: overlay, painel lateral com stagger dos links, scroll-spy
- * (IntersectionObserver rootMargin '-45% 0px -50%'), seletor pt/EN,
- * sociais, Esc fecha, body overflow trava enquanto aberto.
- */
 export function MenuDrawer() {
   const t = useT();
   const { lang, setLang } = useLang();
   const [menu, setMenu] = useState(false);
   const [active, setActive] = useState<string>('inicio');
 
-  // Scroll-spy (linhas 427–428)
   useEffect(() => {
     const spy = new IntersectionObserver(
       (entries) => {
@@ -34,7 +27,6 @@ export function MenuDrawer() {
     return () => spy.disconnect();
   }, []);
 
-  // Esc fecha (linha 422)
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && menu) setMenu(false);
@@ -43,7 +35,6 @@ export function MenuDrawer() {
     return () => window.removeEventListener('keydown', onKey);
   }, [menu]);
 
-  // Trava o scroll do body; restaura ao fechar E ao desmontar (pitfall 15)
   useEffect(() => {
     document.body.style.overflow = menu ? 'hidden' : '';
   }, [menu]);
@@ -58,7 +49,7 @@ export function MenuDrawer() {
 
   return (
     <>
-      {/* Overlay */}
+      {}
       <div
         onClick={close}
         aria-hidden="true"
@@ -75,7 +66,7 @@ export function MenuDrawer() {
         }}
       />
 
-      {/* Painel */}
+      {}
       <aside
         aria-label="Menu"
         inert={!menu}
@@ -274,7 +265,7 @@ export function MenuDrawer() {
         </div>
       </aside>
 
-      {/* FAB hambúrguer */}
+      {}
       <button
         type="button"
         onClick={() => setMenu((m) => !m)}
