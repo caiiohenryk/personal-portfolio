@@ -242,6 +242,8 @@ export function ProjectsCarousel() {
                       {links.codeUrl ? (
                         <a
                           href={links.codeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="btn btn-ghost"
                           style={{ minHeight: 44, display: 'inline-flex', alignItems: 'center', gap: 6 }}
                         >
@@ -250,6 +252,8 @@ export function ProjectsCarousel() {
                       ) : null}
                       <a
                         href={links.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="btn btn-primary"
                         style={{ minHeight: 44, display: 'inline-flex', alignItems: 'center', gap: 6 }}
                       >
